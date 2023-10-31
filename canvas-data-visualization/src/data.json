@@ -1,0 +1,18 @@
+{
+  "Otaniemi": {
+    "2020": {
+      "January": { "rainfall": 53, "temperature": -4.5 },
+      "February": { "rainfall": 37, "temperature": -6.2 },
+      "March": { "rainfall": 42, "temperature": -3.8 },
+      "April": { "rainfall": 30, "temperature": 4.1 },
+      "May": { "rainfall": 43, "temperature": 11.7 },
+      "June": { "rainfall": 63, "temperature": 15.4 },
+      "July": { "rainfall": 72, "temperature": 18.2 },
+      "August": { "rainfall": 85, "temperature": 16.7 },
+      "September": { "rainfall": 60, "temperature": 11.3 },
+      "October": { "rainfall": 74, "temperature": 6.8 },
+      "November": { "rainfall": 53, "temperature": 1.9 },
+      "December": { "rainfall": 58, "temperature": -2.1 }
+    }
+  }
+}
