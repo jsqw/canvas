@@ -1,30 +1,20 @@
-import { useState } from "react";
-import data from "./data.json";
-import PureCanvas from "./components/PureCanvas";
-import P5Canvas from "./components/P5Canvas";
 import "./App.css";
 import KonvaCanvas from "./components/KonvaCanvas";
-import FabricCanvas from "./components/FabricCanvas"; // Import the FabricCanvas component
+import P5Canvas from "./components/P5Canvas";
+import PureCanvas from "./components/PureCanvas";
+import data from "./data.json";
 
 function App() {
-  const [canvasType, setCanvasType] = useState("pure");
 
   return (
     <div className="app-container">
-      <div className="button-container">
-        <button onClick={() => setCanvasType("pure")}>Show Pure Canvas</button>
-        <button onClick={() => setCanvasType("p5")}>Show P5 Canvas</button>
-        <button onClick={() => setCanvasType("konva")}>Show Konva Canvas</button>
-      </div>
-
-      {/* Render the canvas based on the selected canvas type */}
-      {canvasType === "pure" ? (
+        <h1>Canvas Comparison</h1>
+        <h2>Standard HTML5 canvas</h2>
         <PureCanvas data={data} />
-      ) : canvasType === "p5" ? (
-        <P5Canvas data={data} />
-      ) : (
+        <h2>Konva canvas</h2>
         <KonvaCanvas data={data} />
-      )}
+        <h2>P5 canvas</h2>
+        <P5Canvas data={data} />
     </div>
   );
 }
