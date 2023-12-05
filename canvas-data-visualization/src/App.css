@@ -28,3 +28,7 @@ button:hover {
 canvas {
   border: 1px solid black;
 }
+
+div {
+  margin: auto;
+}

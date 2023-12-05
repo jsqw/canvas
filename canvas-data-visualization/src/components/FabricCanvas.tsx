@@ -36,7 +36,8 @@ const FabricCanvas: React.FC<FabricCanvasProps> = ({ data }) => {
       let x = 50;
       const barWidth = 30;
       const gap =
-        (canvas.getWidth() - 100 - barWidth * months.length) / (months.length - 1);
+        (canvas.getWidth() - 100 - barWidth * months.length) /
+        (months.length - 1);
       for (let i = 0; i < rainfallData.length; i++) {
         const barHeight = (rainfallData[i] / maxRainfall) * 200;
         const rect = new fabric.Rect({

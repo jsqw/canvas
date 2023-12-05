@@ -1,0 +1,13 @@
+{
+  "memoryUsage": {
+    "Web Browser": 2.5,
+    "Email Client": 1.2,
+    "Text Editor": 0.8,
+    "IDE": 3.0,
+    "Database Server": 2.0,
+    "Media Player": 1.0,
+    "File Manager": 0.5,
+    "Terminal Emulator": 0.7,
+    "Graphics Editor": 1.3
+  }
+}

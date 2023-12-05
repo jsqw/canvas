@@ -24,19 +24,29 @@ const PureCanvas: React.FC<PureCanvasProps> = ({ data }) => {
     }
   }, [data]);
 
-  const drawChart = (ctx: CanvasRenderingContext2D, canvas: HTMLCanvasElement, data: Data) => {
+  const drawChart = (
+    ctx: CanvasRenderingContext2D,
+    canvas: HTMLCanvasElement,
+    data: Data
+  ) => {
     drawAxis(ctx, canvas, data);
     drawBarChart(ctx, canvas, data);
     drawLineChart(ctx, canvas, data);
   };
 
-  const drawAxis = (ctx: CanvasRenderingContext2D, canvas: HTMLCanvasElement, data: Data) => {
+  const drawAxis = (
+    ctx: CanvasRenderingContext2D,
+    canvas: HTMLCanvasElement,
+    data: Data
+  ) => {
     ctx.beginPath();
     ctx.strokeStyle = "#000000";
     ctx.lineWidth = 1;
 
     const months = Object.keys(data.Otaniemi["2020"]);
-    const rainfallData = months.map((month) => data.Otaniemi["2020"][month].rainfall);
+    const rainfallData = months.map(
+      (month) => data.Otaniemi["2020"][month].rainfall
+    );
     const maxRainfall = Math.max(...rainfallData);
 
     // Y-axis
@@ -63,9 +73,15 @@ const PureCanvas: React.FC<PureCanvasProps> = ({ data }) => {
     }
   };
 
-  const drawBarChart = (ctx: CanvasRenderingContext2D, canvas: HTMLCanvasElement, data: Data) => {
+  const drawBarChart = (
+    ctx: CanvasRenderingContext2D,
+    canvas: HTMLCanvasElement,
+    data: Data
+  ) => {
     const months = Object.keys(data.Otaniemi["2020"]);
-    const rainfallData = months.map((month) => data.Otaniemi["2020"][month].rainfall);
+    const rainfallData = months.map(
+      (month) => data.Otaniemi["2020"][month].rainfall
+    );
     const maxRainfall = Math.max(...rainfallData);
 
     const barWidth = 38;
@@ -77,14 +93,25 @@ const PureCanvas: React.FC<PureCanvasProps> = ({ data }) => {
       const barHeight = (rainfallData[i] / maxRainfall) * 200;
       // Centering the bar relative to the month label
       const centeredX = x - barWidth / 2 + 7 * i;
-      ctx.fillRect(centeredX, canvas.height - barHeight - 50, barWidth, barHeight);
+      ctx.fillRect(
+        centeredX,
+        canvas.height - barHeight - 50,
+        barWidth,
+        barHeight
+      );
       x += barWidth + gap;
     }
   };
 
-  const drawLineChart = (ctx: CanvasRenderingContext2D, canvas: HTMLCanvasElement, data: Data) => {
+  const drawLineChart = (
+    ctx: CanvasRenderingContext2D,
+    canvas: HTMLCanvasElement,
+    data: Data
+  ) => {
     const months = Object.keys(data.Otaniemi["2020"]);
-    const temperatureData = months.map((month) => data.Otaniemi["2020"][month].temperature);
+    const temperatureData = months.map(
+      (month) => data.Otaniemi["2020"][month].temperature
+    );
     const maxTemperature = Math.max(...temperatureData);
     const minTemperature = Math.min(...temperatureData);
 
@@ -96,7 +123,9 @@ const PureCanvas: React.FC<PureCanvasProps> = ({ data }) => {
     let x = 50;
     for (let i = 0; i < temperatureData.length; i++) {
       const y =
-        ((temperatureData[i] - minTemperature) / (maxTemperature - minTemperature)) * 200;
+        ((temperatureData[i] - minTemperature) /
+          (maxTemperature - minTemperature)) *
+        200;
       if (i === 0) {
         ctx.moveTo(x, canvas.height - y - 50);
       } else {
