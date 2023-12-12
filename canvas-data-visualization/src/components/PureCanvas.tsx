@@ -136,12 +136,33 @@ const PureCanvas: React.FC<PureCanvasProps> = ({ data }) => {
     ctx.stroke();
   };
 
+  const formatDataForScreenReader = (data: Data): string => {
+    // Convert the instance to a string using JSON.stringify
+    const dataString: string = JSON.stringify(data, null, 2);
+  
+    // Remove unnecessary punctuation
+    const formattedData: string = dataString
+      .replace(/[{}"]/g, '') // Remove curly braces and double quotes
+      .replace(/\[/g, '')    // Remove square brackets
+      .replace(/]/g, '')
+      .replace(/,\s+/g, ', ') // Remove unnecessary spaces after commas
+      .replace(/\n\s+/g, ' '); // Remove unnecessary indentation
+  
+    return formattedData;
+  };
+
+  const formattedData: string = formatDataForScreenReader(data);
+
   return (
     <canvas
       ref={canvasRef}
       width="800"
       height="500"
       style={{ border: "1px solid black" }}
+      aria-label="Bar chart"
+      aria-describedby={"Evolution of temperature in Otaniemi"}
+      aria-details={JSON.stringify(formattedData, null, 2)}
+      role="img"
     />
   );
 };
